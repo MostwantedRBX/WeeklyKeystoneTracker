@@ -1,8 +1,8 @@
 ## Interface: 91000
 ## Title: WeeklyKeystoneTracker
 ## Version: 0.8
-## Notes:Tracks Weekly Keystonesssss
+## Notes:Tracks Weekly Keystones
 ## Author: Jereb Gainer
 ## DefaultState: enabled
-## SavedVariables: WEEKLYKEYSTONETRACKER_KEY
+## SavedVariables: WEEKLYKEYSTONETRACKER
 WeeklyKeystoneTracker.lua
