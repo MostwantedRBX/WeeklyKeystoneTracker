@@ -21,7 +21,6 @@ local function searchForKey()
 	end
 end
 
-
 local function extrapolateKey(link)
 	-- working on this, next, %d is digits in a pattern
 
@@ -45,17 +44,19 @@ local function extrapolateKey(link)
 end
 
 local function eventHandler(self, event, arg1)
-	if event == "PLAYER_ENTERING_WORLD" then 
+	if event == "PLAYER_ENTERING_WORLD" then
 		-- just in case
-		elseif event == "ADDON_LOADED" then
+	elseif event == "ADDON_LOADED" then
 		-- checks to see if you have saved variables
 			if not WEEKLYKEYSTONETRACKER then
 				WEEKLYKEYSTONETRACKER = {}
 				print("setting variable")
 			end
-		
+
 		if WEEKLYKEYSTONETRACKER then
 			-- OpenAllBags() -- this probably needs to not be here because it messes with Bagnon
+			-- Does it search with the bag closed tho? If not we can open then close after the search
+			-- is done.
 			print(string.find(searchForKey(), ":%d%d%d:"))
 			-- List of InstanceIDs
 			WEEKLYKEYSTONETRACKER.DungeonNames = {
@@ -69,6 +70,10 @@ local function eventHandler(self, event, arg1)
 				[375] = "MISTS" -- Mists of Tirna Scithe
 			}
 		end
+	elseif event == "CHALLENGE_MODE_COMPLETED" then
+		--stuff
+	elseif event == "BAG_UPDATE" then
+		--more stuff
 	end
 end
 
