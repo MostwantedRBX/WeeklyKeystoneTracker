@@ -1,7 +1,7 @@
 ## Interface: 91000
 ## Title: WeeklyKeystoneTracker
 ## Version: 0.8
-## Notes:Tracks Weekly Keystones
+## Notes:Tracks Weekly Keystonesssss
 ## Author: Jereb Gainer
 ## DefaultState: enabled
 
