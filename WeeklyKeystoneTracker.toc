@@ -6,3 +6,5 @@
 ## DefaultState: enabled
 ## SavedVariables: WEEKLYKEYSTONETRACKER_GLOBAL
 ## SavedVariablesPerCharacter: WEEKLYKEYSTONETRACKER_CHARACTER
+
+WeeklyKeystoneTracker.lua
