@@ -4,5 +4,5 @@
 ## Notes:Tracks Weekly Keystones
 ## Author: Jereb Gainer
 ## DefaultState: enabled
-## SavedVariables: WEEKLYKEYSTONETRACKER
-WeeklyKeystoneTracker.lua
+## SavedVariables: WEEKLYKEYSTONETRACKER_GLOBAL
+## SavedVariablesPerCharacter: WEEKLYKEYSTONETRACKER_CHARACTER
