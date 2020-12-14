@@ -38,7 +38,6 @@ end
 -- Takes the keyLink provided and extracts the information from it
 -- Example: |cffa335ee|Hkeystone:180653:382:6:10:11:0:0|h[Keystone: Theater of Pain (6)]|h|r
 
-local function extrapolateKey(link)
 	-- working on this, next, %d is digits in a pattern
 
 	-- Item Code: |cffa335ee|Hkeystone:180653:382:6:10:11:0:0|h[Keystone: Theater of Pain (6)]|h|r
@@ -120,8 +119,25 @@ local function eventHandler(self, event, arg1)
 	elseif event == "CHALLENGE_MODE_COMPLETED" then
 		print("Challenge mode completed!")
 		-- End of CHALLENGE_MODE_COMPLETED event
+	elseif event == "CHALLENGE_MODE_START" then
+		print("Challenge mode started!")
+		local mapChallengeModeID = C_ChallengeMode.GetActiveChallengeMapID()
+		local activeKeystoneLevel, activeAffixIDs, wasActiveKeystoneCharged = C_ChallengeMode.GetActiveKeystoneInfo()
+		local challengeModeActive = C_ChallengeMode.IsChallengeModeActive()
+
+		SendChatMessage("Challenge Mode Starting! Get ready.", "PARTY", "Common");
+		SendChatMessage("Dungeon: " .. mapChallengeModeID, "Whisper", "Common", "Jayisapriest");
+		SendChatMessage("Key Level: " .. activeKeystoneLevel, "Whisper", "Common", "Jayisapriest");
+		SendChatMessage("activeAffixIDs: " .. activeAffixIDs, "Whisper", "Common", "Jayisapriest");
+		SendChatMessage("wasActiveKeystoneCharged: " .. wasActiveKeystoneCharged, "Whisper", "Common", "Jayisapriest");
+		SendChatMessage("challengeModeActive: " .. challengeModeActive, "Whisper", "Common", "Jayisapriest");
+
+
+
+		-- End of CHALLENGE_MODE_COMPLETED event
 	elseif event == "BAG_UPDATE" then
 		print("Bag updated.")
+		local mapChallengeModeID, level, time, onTime, keystoneUpgradeLevels, practiceRun = C_ChallengeMode.GetCompletionInfo()
 
 	end
 end
@@ -130,5 +146,6 @@ local EventFrame = CreateFrame("frame","EventFrame")
 EventFrame:RegisterEvent("PLAYER_LOGIN")
 EventFrame:RegisterEvent("ADDON_LOADED")
 EventFrame:RegisterEvent("CHALLENGE_MODE_COMPLETED")
+EventFrame:RegisterEvent("CHALLENGE_MODE_START")
 EventFrame:RegisterEvent("BAG_UPDATE")
-EventFrame:SetScript("OnEvent", eventHandler
+EventFrame:SetScript("OnEvent", eventHandler)
