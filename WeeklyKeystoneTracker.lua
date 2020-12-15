@@ -103,14 +103,14 @@ local function eventHandler(self, event, arg1)
 		end
 
 		if not WEEKLYKEYSTONETRACKER_CHARACTER then
-			-- Per-character settings first time
+			--Per-character settings first time
 			OpenAllBags()
 			CurrentKeystoneLink = searchForKey()
 			WEEKLYKEYSTONETRACKER_CHARACTER = {}
 
 			WEEKLYKEYSTONETRACKER_CHARACTER = {
 				['CharacterName'] = UnitName("player"),
-				['CurrentKeystone'] = CurrentKeystoneLink, --whhhyyyyyyy woooonnnn'''tttt you wooooorrrrk
+				['CurrentKeystone'] = CurrentKeystoneLink, --This needs to be moved to another event, where we can scan bags
 				['KeystonesCompleted'] = {
 
 				}
