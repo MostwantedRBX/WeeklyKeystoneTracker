@@ -82,7 +82,7 @@ end
 	-- CHALLENGE_MODE_COMPLETED
 	-- BAG_UPDATE
 local function eventHandler(self, event, arg1)
-	if event == "PLAYER_LOGIN" then
+	if event == "ADDON_LOADED" then
 		-- First-time setup
 		if not WEEKLYKEYSTONETRACKER_GLOBAL then
 			-- Start allocating stored variables upon first use.
@@ -104,16 +104,26 @@ local function eventHandler(self, event, arg1)
 
 		if not WEEKLYKEYSTONETRACKER_CHARACTER then
 			-- Per-character settings first time
+			OpenAllBags()
+			CurrentKeystoneLink = searchForKey()
 			WEEKLYKEYSTONETRACKER_CHARACTER = {}
 
-			WEEKLYKEYSTONETRACKER_CHARACTER.Character = UnitName("player")
+			WEEKLYKEYSTONETRACKER_CHARACTER = {
+				['CharacterName'] = UnitName("player"),
+				['CurrentKeystone'] = CurrentKeystoneLink, --whhhyyyyyyy woooonnnn'''tttt you wooooorrrrk
+				['KeystonesCompleted'] = {
+
+				}
+
+			}
+
+
 		end
 
 		-- End of first-time setup
-		
 		-- If this isn't the first login, we want to...
 		-- Store the player's current Keystone Information
-		-- 
+		--
 
 		-- End of PLAYER_LOGIN event
 	elseif event == "CHALLENGE_MODE_COMPLETED" then
